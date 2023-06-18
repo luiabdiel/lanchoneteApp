@@ -62,6 +62,27 @@ class SnackController {
     }
   }
 
+  async change(req: Request, res: Response) {
+    const { id } = req.params;
+    const { title, price } = req.body;
+
+    try {
+      const snack = await Snack.findByIdAndUpdate(id, { title, price });
+
+      if (!snack) {
+        return res.status(404).json({
+          error: 'Snack not found'
+        });
+      }
+
+      res.json(snack);
+    } catch (error) {
+      return res.status(500).json({
+        error: 'Something went wrong, please try again'
+      });
+    }
+  }
+
   async delete(req: Request, res: Response) {
     const { id } = req.params;
 
