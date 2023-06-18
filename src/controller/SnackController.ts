@@ -63,8 +63,9 @@ class SnackController {
   }
 
   async delete(req: Request, res: Response) {
+    const { id } = req.params;
+
     try {
-      const { id } = req.params;
       await Snack.findByIdAndDelete(id);
 
       res.sendStatus(204);
