@@ -13,6 +13,27 @@ class SnackController {
     }
   }
 
+  async findById(req: Request, res: Response) {
+    const { id } = req.params;
+
+    try {
+      const snack = await Snack.findById(id);
+
+      if (!snack) {
+        return res.send(404).json({
+          error: 'Oops',
+          message: 'Snack not found'
+        })
+      }
+
+      return res.json(snack);
+    } catch (error) {
+      return res.status(500).json({
+        error: 'Something wrong happend, try again'
+      });
+    }
+  }
+
   async create(req: Request, res: Response) {
     const { title, price, image } = req.body;
 
