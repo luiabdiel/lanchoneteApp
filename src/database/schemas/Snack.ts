@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const Snack = new mongoose.Schema({
   title: {
@@ -20,4 +20,4 @@ const Snack = new mongoose.Schema({
   },
 });
 
-export default mongoose.model("Snack", Snack);
+export default mongoose.model('Snack', Snack);
