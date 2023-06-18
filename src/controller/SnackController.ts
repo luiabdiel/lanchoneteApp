@@ -61,6 +61,20 @@ class SnackController {
       });
     }
   }
+
+  async delete(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      await Snack.findByIdAndDelete(id);
+
+      res.sendStatus(204);
+    } catch (error) {
+      return res.status(500).json({
+        error: 'Failed to delete snack',
+        message: error
+      });
+    }
+  }
 }
 
 export default new SnackController;
