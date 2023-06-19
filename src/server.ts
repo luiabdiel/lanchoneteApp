@@ -24,4 +24,4 @@ mongoose.connect('mongodb://localhost/snackapi')
       console.log(`🔥 Server started at http://localhost:${port}`);
     });
   })
-  .catch(() => console.log('Erro ao conectar no mongodb'));
+  .catch(() => console.log('Error connecting to MongoDB'));
