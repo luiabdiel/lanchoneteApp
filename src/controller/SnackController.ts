@@ -64,10 +64,10 @@ class SnackController {
 
   async change(req: Request, res: Response) {
     const { id } = req.params;
-    const { title, price } = req.body;
+    const { title, price, image } = req.body;
 
     try {
-      const snack = await Snack.findByIdAndUpdate(id, { title, price });
+      const snack = await Snack.findByIdAndUpdate(id, { title, price, image });
 
       if (!snack) {
         return res.status(404).json({
